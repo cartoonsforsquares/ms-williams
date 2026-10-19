@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ebe9da">
+<meta property="og:title" content="Ms.Williams Font">
+<meta property="og:description" content="A free, hand-drawn fan font. Designed by a fan for other fans.">
+</head>
+<body>
+<title>Ms.Williams Font</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Ms.Williams: a free, hand-drawn fan font for Hayley Williams fans. Type, test and download it.">
+<style>
+/* Scrapbook page. One narrow column, small type, small bead headlines, one spacing rhythm.
+   Every section is the same object: a bead headline (alternating left / right), then one paper card,
+   slightly tilted, with a crayon doodle stuck on its opposite corner like a sticker.
+   Geist Medium for all text. One deliberate paper look, so no dark variant. */
+:root {
+  color-scheme: light;
+  --paper: #ebe9da;          /* under the texture */
+  --card: #fdfcf8;
+  --ink: #1d1b1b;
+  --ink-soft: #6a6260;
+  --rule: rgba(120, 150, 190, .22);   /* notebook lines */
+  --line: rgba(29, 27, 27, .12);
+  --display: 'Ms.Williams Shadow', sans-serif;
+  --body: 'Geist', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --gap: 88px;               /* between sections, always */
+  --bead: 26px;              /* height of one row of beads */
+}
+@font-face { font-family: 'Ms.Williams Shadow'; src: url(fonts/MsWilliamsShadow-Regular.woff2) format('woff2'); font-display: block; }
+@font-face { font-family: 'Geist'; src: url(fonts/Geist-Medium.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; overflow-x: clip; }
+body { background: var(--paper) url(kit/paper.webp) center top / 1800px auto repeat; color: var(--ink); font: 500 14px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+.page { max-width: 600px; margin: 0 auto; padding-block: max(56px, env(safe-area-inset-top, 0px)) 64px;
+  padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px));
+  display: grid; gap: var(--gap); }
+p { margin: 0; }
+button:focus-visible, textarea:focus-visible, input:focus-visible { outline: 2px dashed var(--ink); outline-offset: 4px; }
+.label { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-soft); }
+
+/* hero */
+.hero { position: relative; display: grid; justify-items: center; gap: 14px; text-align: center; }
+.hero h1 { margin: 0; font: 400 clamp(54px, 15vw, 92px)/1 var(--display); transform: rotate(-3deg); }
+.beads { border: 0; background: none; padding: 0; cursor: pointer; }
+.beads img { display: block; height: auto; width: 100%; filter: drop-shadow(0 2px 2px rgba(40, 30, 20, .2)); }
+.beads:hover { transform: rotate(-2deg); }
+.beads:active { transform: rotate(-2deg) translateY(1px) scale(.98); }
+.get { display: grid; justify-items: center; gap: 10px; margin-top: calc(var(--gap) * -.4); }
+.get .beads { width: calc(var(--bead) * 780 / 55); max-width: 100%; }   /* same bead size as the headlines */
+#status { min-height: 1.3em; font-size: 12px; color: var(--ink-soft); }
+
+/* section: headline + card */
+section { display: grid; gap: 18px; }
+h2 { margin: 0; line-height: 0; }
+h2 img { display: block; height: auto; width: calc(var(--bead) * var(--w) / 55); }   /* every bead the same size */
+h2 { justify-self: center; }
+.card { position: relative; background: var(--card); padding: 26px 28px; box-shadow: 0 1px 1px rgba(40, 30, 20, .08), 0 10px 24px -8px rgba(40, 30, 20, .22);
+  display: grid; gap: 14px; transform: rotate(var(--tilt, -.6deg)); }
+section.right .card { --tilt: .6deg; }
+.sticker { position: absolute; z-index: 2; pointer-events: none; user-select: none; height: auto; width: 72px; }
+/* stuck on the card's bottom corner, so it never covers the headline */
+section .sticker { bottom: -30px; right: -22px; transform: rotate(14deg); }
+section.right .sticker { right: auto; left: -26px; transform: rotate(-12deg); }
+
+/* character sheet */
+.featured { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 4px; }
+.sym { display: grid; justify-items: center; gap: 2px; padding: 12px 4px 10px; border: 1px solid var(--line); background: #fff; transform: rotate(var(--r)); }
+.sym:nth-child(1) { --r: -2deg; } .sym:nth-child(2) { --r: 1.5deg; } .sym:nth-child(3) { --r: -1deg; }
+.sym .g { font: 400 54px/1 var(--display); }
+.sym kbd { font: inherit; font-size: 11px; border: 1px solid var(--line); border-radius: 4px; padding: 0 5px; color: var(--ink); }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); border-top: 1px solid var(--rule); border-left: 1px solid var(--rule); }
+.grid span { display: grid; place-items: center; aspect-ratio: 1; font: 400 25px/1 var(--display); border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+
+/* type test: notebook paper */
+.note { background-image: linear-gradient(90deg, transparent 22px, rgba(230, 120, 150, .3) 22px, rgba(230, 120, 150, .3) 23px, transparent 23px),
+  repeating-linear-gradient(transparent 0 27px, var(--rule) 27px 28px); background-color: var(--card); padding-left: 40px; }
+.preview { min-height: 140px; display: grid; align-items: center; overflow-wrap: anywhere; white-space: pre-wrap; text-align: center;
+  font: 400 var(--size, 48px)/1.4 var(--display); padding: 6px 0; }
+textarea { width: 100%; font: 500 16px/1.5 var(--body); color: var(--ink); background: rgba(255, 255, 255, .85); border: 1px solid var(--line); border-radius: 4px; padding: 8px 10px; resize: vertical; min-height: 44px; }
+.size { display: flex; gap: 12px; align-items: center; }
+input[type=range] { flex: 1; max-width: 220px; accent-color: var(--ink); }
+.pill { margin-left: auto; flex: none; font: 500 10.5px/1 var(--body); letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+  background: #fff; border: 1px solid var(--ink); border-radius: 999px; padding: 9px 14px; cursor: pointer; box-shadow: 2px 2px 0 var(--ink); }
+.pill:hover { background: #fde3ee; }
+.pill:active { transform: translate(1px, 1px); box-shadow: 1px 1px 0 var(--ink); }
+.pill.copy { margin: 8px 0 0; padding: 7px 12px; font-size: 9.5px; }
+.pill { position: relative; }
+.pill::after { content: ''; position: absolute; inset: -8px -4px; }   /* bigger tap area than it looks */
+@media (pointer: coarse) {
+  .pill { min-height: 40px; }
+  .pill.copy { min-height: 34px; }
+  input[type=range] { height: 32px; }
+}
+.pill:disabled { opacity: .5; cursor: progress; }
+#pngStatus:empty { display: none; }
+
+/* make a poster: a little 9:16 poster mock beside the copy */
+.poster-row { display: flex; gap: 24px; align-items: center; }
+.mini-poster { flex: none; width: 140px; height: auto; display: block; transform: rotate(-3deg); border: 5px solid #fff; box-shadow: 0 6px 14px rgba(40, 30, 20, .25); }
+.poster-copy { display: grid; gap: 10px; justify-items: start; }
+.poster-copy .pill { margin: 4px 0 0; display: inline-flex; align-items: center; }
+.pill.soon { opacity: .55; box-shadow: none; cursor: default; pointer-events: none; }
+
+/* install: three little tags */
+.tags { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.tag { background: #fff; border: 1px solid var(--line); padding: 12px 12px 14px; display: grid; gap: 4px; align-content: start; font-size: 13px; transform: rotate(var(--r)); }
+.tag:nth-child(1) { --r: -1.5deg; } .tag:nth-child(2) { --r: 1deg; } .tag:nth-child(3) { --r: -.5deg; }
+.fine { font-size: 12.5px; color: var(--ink-soft); }
+
+footer { text-align: center; }
+
+@media (max-width: 520px) {
+  :root { --gap: 72px; --bead: min(22px, calc((100vw - 40px) * 55 / 906)); }   /* widest headline (Character sheet) fits the screen */
+  .card { padding: 22px 18px; }
+  .note { padding-left: 34px; }
+  .sticker { width: 58px; }
+  section .sticker { right: -10px; }
+  section.right .sticker { left: -10px; }
+  .tags { grid-template-columns: 1fr; }
+  .tag { --r: 0deg !important; }
+  .poster-row { flex-direction: column; }
+  .poster-copy { justify-items: center; text-align: center; }
+  .sym .g { font-size: 44px; }
+  .size { flex-wrap: wrap; }
+  input[type=range] { max-width: none; }
+  #png { margin-left: 0; width: 100%; }
+  .sym .label { letter-spacing: .06em; white-space: nowrap; font-size: 9.5px; }
+}
+@media (prefers-reduced-motion: reduce) { .beads:hover, .beads:active { transform: none; } }
+</style>
+
+<div class="page">
+  <header class="hero">
+    <h1>Ms.Williams</h1>
+    <p>Designed by a fan for other fans.</p>
+  </header>
+
+  <section aria-label="Typeface">
+    <h2><img src="kit/h-typeface.webp" style="--w: 558" alt="Typeface"></h2>
+    <div class="card">
+      <img class="sticker" src="kit/flower-green.webp" alt="">
+      <p>This typeface is lovingly named Ms.Williams (if ya nasty).  I designed it as a fan, to empower and encourage other Hayley Williams’ fans to make their own Hayley Williams themed merch.</p>
+    </div>
+  </section>
+
+  <section class="right" aria-label="Character sheet">
+    <h2><img src="kit/h-character-sheet.webp" style="--w: 906" alt="Character sheet"></h2>
+    <div class="card">
+      <img class="sticker" src="kit/flower-purple.webp" alt="">
+      <p>I built out a basic character set with numerals, punctuation marks, and two additional symbols I saw on hoodies, the cute devil and the H.W logo mark.</p>
+      <p>This set intentionally excludes curly braces so that you can type the devil and the H.W logo mark using curly braces on your keyboard or your phone keypad.</p>
+      <div class="featured">
+        <div class="sym"><span class="g" aria-hidden="true">{</span><span class="label">Devil</span><kbd>{</kbd><button class="pill copy" type="button" data-copy="{" aria-label="Copy { for the devil">Copy</button></div>
+        <div class="sym"><span class="g" aria-hidden="true">&lt;3</span><span class="label">Heart</span><kbd>&lt;3</kbd><button class="pill copy" type="button" data-copy="&lt;3" aria-label="Copy &lt;3 for the heart">Copy</button></div>
+        <div class="sym"><span class="g" aria-hidden="true">}</span><span class="label">HW logo mark</span><kbd>}</kbd><button class="pill copy" type="button" data-copy="}" aria-label="Copy } for the hw logo mark">Copy</button></div>
+      </div>
+      <span class="label">Every character</span>
+      <div class="grid" id="grid" aria-label="Every character in the font"></div>
+    </div>
+  </section>
+
+  <section aria-label="Type test">
+    <h2><img src="kit/h-type-test.webp" style="--w: 600" alt="Type test"></h2>
+    <div class="card note">
+      <img class="sticker" src="kit/star-blue.webp" alt="">
+      <p>Use this area to test this typeface. You can also download a png of the words you type here.</p>
+      <div class="preview" id="preview" aria-live="polite"></div>
+      <label class="label" for="txt">Type here</label>
+      <textarea id="txt" rows="2" spellcheck="false">the hayley williams show &lt;3 { }</textarea>
+      <div class="size"><label class="label" for="size">Size</label><input id="size" type="range" min="24" max="120" value="48"><button class="pill" type="button" id="png">Download PNG</button></div>
+      <div class="fine" id="pngStatus" role="status"></div>
+    </div>
+  </section>
+
+  <section class="right" aria-label="Make a poster">
+    <h2><img src="kit/h-make-a-poster.webp" style="--w: 814" alt="Make a poster"></h2>
+    <div class="card">
+      <img class="sticker" src="kit/flower-green.webp" alt="">
+      <div class="poster-row">
+        <img class="mini-poster" src="kit/mock.webp" width="420" height="600" alt="">
+        <div class="poster-copy">
+          <p>I am currently working on making this tool that will allow everyone to use their concert photos and use this font to turn them into a printable poster. Not everyone can afford Photoshop or learn complex design software. So, this is my way of making sure no one gets left behind. And you'll be able to do it on your phone.</p>
+          <span class="pill soon">Coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-label="How to install">
+    <h2><img src="kit/h-how-to-install.webp" style="--w: 828" alt="How to install"></h2>
+    <div class="card">
+      <img class="sticker" src="kit/star-pink.webp" alt="">
+      <div class="tags">
+        <div class="tag"><span class="label">Mac</span>Double-click the .ttf file, then click Install Font.</div>
+        <div class="tag"><span class="label">Windows</span>Right-click the .ttf file and choose Install.</div>
+        <div class="tag"><span class="label">Procreate</span>Actions › Add › Add Text, then Edit Style › Import Font.</div>
+      </div>
+      <p class="fine">It shows up as “Ms.Williams Shadow”. The pink and black are built in, so changing the text colour won't change them. Full colour in Illustrator, Photoshop, Mac apps, Windows 10/11 and browsers; apps without colour-font support, like Figma, show the letters without the outline and shadow.</p>
+    </div>
+  </section>
+
+  <section class="right" aria-label="License">
+    <h2><img src="kit/h-license.webp" style="--w: 485" alt="License"></h2>
+    <div class="card">
+      <img class="sticker" src="kit/star-yellow.webp" alt="">
+      <p>Ms.Williams is free for personal, non-commercial use. You can use it for fan art, posters, stickers, scrapbooks, posts and gifts that you won't sell. This is a fan made project. As much as I'd love to be, I am not affiliated with Ms.Williams' marketing or design team. So, I do not get paid for this. I simply made it for the love of the game.</p>
+    </div>
+  </section>
+
+  <div class="get" id="get">
+    <button class="beads" type="button" data-download aria-label="Download the Ms.Williams font"><img src="kit/download-font.webp" alt=""></button>
+    <div id="status" role="status"></div>
+  </div>
+
+  <footer class="label">Designed by a fan for other fans</footer>
+</div>
+
+<script>
+(() => {
+'use strict';
+const $ = id => document.getElementById(id);
+const status = t => { $('status').textContent = t; };
+
+/* ---------- character grid ---------- */
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789.,:;!?\'"‘’“”-–—_&()[]/\\|+=*#$%@<>~★';
+for (const c of CHARS) { const s = document.createElement('span'); s.textContent = c; $('grid').appendChild(s); }
+
+/* ---------- copy the symbol shortcuts ---------- */
+document.querySelectorAll('[data-copy]').forEach(b => b.onclick = async () => {
+  try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+  catch { b.textContent = 'Type ' + b.dataset.copy; }
+  setTimeout(() => { b.textContent = 'Copy'; }, 1600);
+});
+
+/* ---------- type test ---------- */
+function render() {
+  const p = $('preview');
+  p.textContent = $('txt').value || ' ';
+  p.style.setProperty('--size', $('size').value + 'px');
+}
+$('txt').addEventListener('input', render);
+$('size').addEventListener('input', render);
+if (window.innerWidth < 520) $('size').value = 38;   // a phone-sized start
+render();
+
+/* ---------- PNG of the type test ---------- */
+// Drawn on a canvas at print-friendly size (200px letters, lines wrapped to 2000px), transparent
+// background, trimmed to the ink. The colour font draws in colour on canvas like it does on the page.
+async function makePng() {
+  const FONT = '200px "Ms.Williams Shadow"', MAXW = 2000, LH = 280, PAD = 60;
+  await document.fonts.load(FONT, $('txt').value || 'a');
+  const m = document.createElement('canvas').getContext('2d'); m.font = FONT;
+  const lines = [];
+  for (const para of ($('txt').value.trim() || 'Ms.Williams').split('\n')) {
+    let line = '';
+    for (const word of para.split(/ +/)) {
+      const t = line ? line + ' ' + word : word;
+      if (line && m.measureText(t).width > MAXW) { lines.push(line); line = word; } else line = t;
+    }
+    lines.push(line);
+  }
+  const w = Math.ceil(Math.max(...lines.map(l => m.measureText(l).width))) + PAD * 2;
+  const c = document.createElement('canvas'); c.width = w; c.height = lines.length * LH + PAD * 2;
+  const g = c.getContext('2d'); g.font = FONT; g.textAlign = 'center'; g.textBaseline = 'middle';
+  lines.forEach((l, i) => g.fillText(l, w / 2, PAD + LH * (i + .5)));
+  // trim to the drawn pixels, keeping a small margin
+  const d = g.getImageData(0, 0, c.width, c.height).data;
+  let x0 = c.width, y0 = c.height, x1 = -1, y1 = -1;
+  for (let y = 0; y < c.height; y++) for (let x = 0; x < c.width; x++) if (d[(y * c.width + x) * 4 + 3] > 8) {
+    if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y;
+  }
+  if (x1 < 0) return null;
+  const M = 24, out = document.createElement('canvas');
+  out.width = x1 - x0 + 1 + M * 2; out.height = y1 - y0 + 1 + M * 2;
+  out.getContext('2d').drawImage(c, x0, y0, x1 - x0 + 1, y1 - y0 + 1, M, M, x1 - x0 + 1, y1 - y0 + 1);
+  return new Promise(res => out.toBlob(res, 'image/png'));
+}
+$('png').onclick = async () => {
+  const b = $('png'), say = t => { $('pngStatus').textContent = t; };
+  b.disabled = true; say('');
+  try {
+    const blob = await makePng();
+    if (!blob) { say('Type something first.'); return; }
+    const name = 'ms-williams-' + ($('txt').value.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 30) || 'type') + '.png';
+    // Phones: the share sheet has "Save Image", which puts it in Photos rather than Files
+    const file = new File([blob], name, { type: 'image/png' });
+    if (matchMedia('(pointer: coarse)').matches && navigator.canShare && navigator.canShare({ files: [file] })) {
+      try { await navigator.share({ files: [file] }); say(''); return; }
+      catch (err) { if (err && err.name === 'AbortError') { say(''); return; } }   // anything else: fall back to a download
+    }
+    await saveBlob(name, blob, 'image/png', say);
+  } catch { say('Couldn’t make the PNG. Try again.'); }
+  finally { b.disabled = false; }
+};
+
+/* ---------- download ---------- */
+async function saveBlob(name, blob, type, say = status) {
+  let dl = null;
+  try { dl = window.claude && window.claude.use ? await window.claude.use('downloads') : null; } catch { dl = null; }
+  if (dl) {
+    try { await dl.save({ filename: name, data: blob }); say('Saved ' + name + '.'); }
+    catch (err) { say(err && err.code === 'declined' ? 'Download cancelled.' : 'Downloads aren’t available in this view.'); }
+    return;
+  }
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([blob], { type })); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  say('Downloading ' + name + '…');
+}
+async function download() {
+  // The zip has the font, its web version, the licence and install guide. Where a zip can't be
+  // served, fall back to the font file.
+  try {
+    const r = await fetch('download/Ms.Williams-font.zip');
+    if (r.ok && (r.headers.get('content-type') || '').indexOf('html') < 0) { await saveBlob('Ms.Williams-font.zip', await r.blob(), 'application/zip'); return; }
+  } catch { /* fall through */ }
+  try {
+    const r = await fetch('download/MsWilliamsShadow-Regular.ttf'); if (!r.ok) throw 0;
+    await saveBlob('MsWilliamsShadow-Regular.ttf', await r.blob(), 'font/ttf');
+  } catch { status('Couldn’t get the font file. Try again in a moment.'); }
+}
+document.querySelectorAll('[data-download]').forEach(b => b.onclick = download);
+})();
+</script>
+
+</body>
+</html>
