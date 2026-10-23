@@ -104,7 +104,7 @@ input[type=range] { flex: 1; max-width: 220px; accent-color: var(--ink); }
 .mini-poster { flex: none; width: 140px; height: auto; display: block; transform: rotate(-3deg); border: 5px solid #fff; box-shadow: 0 6px 14px rgba(40, 30, 20, .25); }
 .poster-copy { display: grid; gap: 10px; justify-items: start; }
 .poster-copy .pill { margin: 4px 0 0; display: inline-flex; align-items: center; }
-.pill.soon { opacity: .55; box-shadow: none; cursor: default; pointer-events: none; }
+a.pill { text-decoration: none; }
 
 /* install: three little tags */
 .tags { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -185,7 +185,7 @@ footer { text-align: center; }
         <img class="mini-poster" src="kit/mock.webp" width="420" height="600" alt="">
         <div class="poster-copy">
           <p>I am currently working on making this tool that will allow everyone to use their concert photos and use this font to turn them into a printable poster. Not everyone can afford Photoshop or learn complex design software. So, this is my way of making sure no one gets left behind. And you'll be able to do it on your phone.</p>
-          <span class="pill soon">Coming soon</span>
+          <a class="pill" href="https://cartoonsforsquares.github.io/ms-williams-poster/" target="_blank" rel="noopener">Make a poster ↗</a>
         </div>
       </div>
     </div>
