@@ -113,6 +113,8 @@ a.pill { text-decoration: none; }
 .fine { font-size: 12.5px; color: var(--ink-soft); }
 
 footer { text-align: center; }
+.more { display: grid; justify-items: center; gap: 10px; margin-top: calc(var(--gap) * -.5); }
+.more .pill { margin: 0; }
 
 @media (max-width: 520px) {
   :root { --gap: 72px; --bead: min(22px, calc((100vw - 40px) * 55 / 906)); }   /* widest headline (Character sheet) fits the screen */
@@ -218,6 +220,11 @@ footer { text-align: center; }
     <button class="beads" type="button" data-download aria-label="Download the Ms.Williams font"><img src="kit/download-font.webp" alt=""></button>
     <div id="status" role="status"></div>
   </div>
+
+  <aside class="more" aria-label="More fan fonts">
+    <span class="label">More fan fonts</span>
+    <a class="pill" href="https://cartoonsforsquares.github.io/riot-paramore/" target="_blank" rel="noopener">Riot ↗</a>
+  </aside>
 
   <footer class="label">Designed by a fan for other fans</footer>
 </div>
